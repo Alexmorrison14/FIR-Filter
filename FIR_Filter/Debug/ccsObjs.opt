@@ -1,0 +1,1 @@
+"./fir_filter.obj" "./main.obj" "../lnk_msp430fr4133.cmd" -llibc.a 
