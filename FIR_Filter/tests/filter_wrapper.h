@@ -16,6 +16,6 @@
 #define WDTHOLD 1U
 
 float call_fir_filter(float data);
-
+void reset_input_values(void);
 
 #endif /* FILTER_WRAPPER_H_ */

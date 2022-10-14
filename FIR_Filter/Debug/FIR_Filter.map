@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker PC v21.6.0                     
 ******************************************************************************
->> Linked Thu Oct  6 16:00:55 2022
+>> Linked Fri Oct 14 10:38:03 2022
 
 OUTPUT FILE NAME:   <FIR_Filter.out>
-ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000c860
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000c86c
 
 
 MEMORY CONFIGURATION
@@ -15,8 +15,8 @@ MEMORY CONFIGURATION
   PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
   PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
   INFOA                 00001800   00000200  00000000  00000200  RWIX
-  RAM                   00002000   00000800  000000f2  0000070e  RWIX
-  FRAM                  0000c400   00003b80  000004a4  000036dc  RWIX
+  RAM                   00002000   00000800  000001b8  00000648  RWIX
+  FRAM                  0000c400   00003b80  000004b0  000036d0  RWIX
   JTAGSIGNATURE         0000ff80   00000004  00000004  00000000  RWIX  ffff 
   BSLSIGNATURE          0000ff84   00000004  00000004  00000000  RWIX  ffff 
   INT00                 0000ff88   00000002  00000000  00000002  RWIX
@@ -89,45 +89,45 @@ section   page    origin      length       input sections
 .TI.persistent 
 *          0    0000c400    00000000     UNINITIALIZED
 
-.cinit     0    0000c400    00000038     
-                  0000c400    00000028     (.cinit..data.load) [load image, compression = lzss]
-                  0000c428    00000008     (__TI_handler_table)
-                  0000c430    00000008     (__TI_cinit_table)
+.cinit     0    0000c400    0000003a     
+                  0000c400    00000029     (.cinit..data.load) [load image, compression = lzss]
+                  0000c429    00000001     --HOLE-- [fill = 0]
+                  0000c42a    00000008     (__TI_handler_table)
+                  0000c432    00000008     (__TI_cinit_table)
 
-.pinit     0    0000c438    00000000     UNINITIALIZED
+.pinit     0    0000c43a    00000000     UNINITIALIZED
 
-.binit     0    0000c438    00000000     
+.binit     0    0000c43a    00000000     
 
 .init_array 
-*          0    0000c438    00000000     UNINITIALIZED
+*          0    0000c43a    00000000     UNINITIALIZED
 
 .mspabi.exidx 
-*          0    0000c438    00000000     UNINITIALIZED
+*          0    0000c43a    00000000     UNINITIALIZED
 
 .mspabi.extab 
-*          0    0000c438    00000000     UNINITIALIZED
+*          0    0000c43a    00000000     UNINITIALIZED
 
-.const     0    0000c438    00000000     UNINITIALIZED
+.const     0    0000c43a    00000000     UNINITIALIZED
 
-.text      0    0000c438    0000046c     
-                  0000c438    00000132     rts430x_lc_sd_eabi.lib : fs_add.asm.obj (.text)
-                  0000c56a    000000ee                            : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  0000c658    000000b8                            : fs_mpy.asm.obj (.text)
-                  0000c710    0000006a                            : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt)
-                  0000c77a    0000006a     fir_filter.obj (.text:fir_filter)
-                  0000c7e4    00000040     rts430x_lc_sd_eabi.lib : cpy_util.asm.obj (.text:__memcpy_far)
-                  0000c824    0000003c                            : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
-                  0000c860    0000001c                            : boot.c.obj (.text:_isr:_c_int00_noargs)
-                  0000c87c    00000014     main.obj (.text:main)
-                  0000c890    00000008     rts430x_lc_sd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
-                  0000c898    00000006                            : exit.c.obj (.text:abort)
-                  0000c89e    00000004                            : pre_init.c.obj (.text:_system_pre_init)
-                  0000c8a2    00000002                            : startup.c.obj (.text:_system_post_cinit)
+.text      0    0000c43a    00000476     
+                  0000c43a    00000132     rts430x_lc_sd_eabi.lib : fs_add.asm.obj (.text)
+                  0000c56c    000000ee                            : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  0000c65a    000000b8                            : fs_mpy.asm.obj (.text)
+                  0000c712    00000074     fir_filter.obj (.text:fir_filter)
+                  0000c786    0000006a     rts430x_lc_sd_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt)
+                  0000c7f0    00000040                            : cpy_util.asm.obj (.text:__memcpy_far)
+                  0000c830    0000003c                            : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000c86c    0000001c                            : boot.c.obj (.text:_isr:_c_int00_noargs)
+                  0000c888    00000014     main.obj (.text:main)
+                  0000c89c    00000008     rts430x_lc_sd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
+                  0000c8a4    00000006                            : exit.c.obj (.text:abort)
+                  0000c8aa    00000004                            : pre_init.c.obj (.text:_system_pre_init)
+                  0000c8ae    00000002                            : startup.c.obj (.text:_system_post_cinit)
 
-.data      0    00002000    00000052     UNINITIALIZED
-                  00002000    00000028     fir_filter.obj (.data:b)
-                  00002028    00000028     fir_filter.obj (.data:input)
-                  00002050    00000002     fir_filter.obj (.data)
+.data      0    00002000    00000118     UNINITIALIZED
+                  00002000    000000f0     fir_filter.obj (.data:input)
+                  000020f0    00000028     fir_filter.obj (.data:b)
 
 .stack     0    00002760    000000a0     UNINITIALIZED
                   00002760    00000002     rts430x_lc_sd_eabi.lib : boot.c.obj (.stack)
@@ -193,10 +193,10 @@ MODULE SUMMARY
        Module                       code   ro data   rw data
        ------                       ----   -------   -------
     .\
-       fir_filter.obj               106    0         82     
+       fir_filter.obj               116    0         280    
        main.obj                     20     0         0      
     +--+----------------------------+------+---------+---------+
-       Total:                       126    0         82     
+       Total:                       136    0         280    
                                                             
     C:\ti\ccs1120\ccs\tools\compiler\ti-cgt-msp430_21.6.0.LTS\lib\rts430x_lc_sd_eabi.lib
        fs_add.asm.obj               306    0         0      
@@ -228,20 +228,20 @@ MODULE SUMMARY
        Total:                       1006   30        0      
                                                             
        Stack:                       0      0         160    
-       Linker Generated:            0      56        0      
+       Linker Generated:            0      57        0      
     +--+----------------------------+------+---------+---------+
-       Grand Total:                 1132   86        242    
+       Grand Total:                 1142   87        440    
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 0000c430 records: 1, size/record: 8, table size: 8
-	.data: load addr=0000c400, load size=00000028 bytes, run addr=00002000, run size=00000052 bytes, compression=lzss
+__TI_cinit_table @ 0000c432 records: 1, size/record: 8, table size: 8
+	.data: load addr=0000c400, load size=00000029 bytes, run addr=00002000, run size=00000118 bytes, compression=lzss
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 0000c428 records: 2, size/record: 4, table size: 8
+__TI_handler_table @ 0000c42a records: 2, size/record: 4, table size: 8
 	index: 0, handler: __TI_decompress_lzss
 	index: 1, handler: __TI_decompress_none
 
@@ -328,7 +328,7 @@ address   name
 00000672  BAKMEM9                                
 00000673  BAKMEM9_H                              
 00000672  BAKMEM9_L                              
-0000c898  C$$EXIT                                
+0000c8a4  C$$EXIT                                
 000002ee  CAPTIO0CTL                             
 000002ef  CAPTIO0CTL_H                           
 000002ee  CAPTIO0CTL_L                           
@@ -760,15 +760,15 @@ address   name
 000001cc  WDTCTL_L                               
 00002800  __STACK_END                            
 000000a0  __STACK_SIZE                           
-0000c430  __TI_CINIT_Base                        
-0000c438  __TI_CINIT_Limit                       
-0000c438  __TI_CINIT_Warm                        
-0000c428  __TI_Handler_Table_Base                
-0000c430  __TI_Handler_Table_Limit               
-0000c890  __TI_ISR_TRAP                          
-0000c710  __TI_auto_init_nobinit_nopinit_hold_wdt
-0000c56a  __TI_decompress_lzss                   
-0000c824  __TI_decompress_none                   
+0000c432  __TI_CINIT_Base                        
+0000c43a  __TI_CINIT_Limit                       
+0000c43a  __TI_CINIT_Warm                        
+0000c42a  __TI_Handler_Table_Base                
+0000c432  __TI_Handler_Table_Limit               
+0000c89c  __TI_ISR_TRAP                          
+0000c786  __TI_auto_init_nobinit_nopinit_hold_wdt
+0000c56c  __TI_decompress_lzss                   
+0000c830  __TI_decompress_none                   
 0000ffe2  __TI_int45                             
 0000ffe4  __TI_int46                             
 0000ffe6  __TI_int47                             
@@ -787,18 +787,18 @@ ffffffff  __TI_pprof_out_hndl
 ffffffff  __TI_prof_data_size                    
 ffffffff  __TI_prof_data_start                   
 ffffffff  __c_args__                             
-0000c7e4  __memcpy_far                           
-0000c43e  __mspabi_addf                          
-0000c658  __mspabi_mpyf                          
-0000c438  __mspabi_subf                          
-0000c860  _c_int00_noargs                        
+0000c7f0  __memcpy_far                           
+0000c440  __mspabi_addf                          
+0000c65a  __mspabi_mpyf                          
+0000c43a  __mspabi_subf                          
+0000c86c  _c_int00_noargs                        
 0000fffe  _reset_vector                          
 00002760  _stack                                 
-0000c8a2  _system_post_cinit                     
-0000c89e  _system_pre_init                       
-0000c898  abort                                  
-0000c77a  fir_filter                             
-0000c87c  main                                   
+0000c8ae  _system_post_cinit                     
+0000c8aa  _system_pre_init                       
+0000c8a4  abort                                  
+0000c712  fir_filter                             
+0000c888  main                                   
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -1315,26 +1315,26 @@ address   name
 0000071f  ADCIV_H                                
 00002760  _stack                                 
 00002800  __STACK_END                            
-0000c428  __TI_Handler_Table_Base                
-0000c430  __TI_CINIT_Base                        
-0000c430  __TI_Handler_Table_Limit               
-0000c438  __TI_CINIT_Limit                       
-0000c438  __TI_CINIT_Warm                        
-0000c438  __mspabi_subf                          
-0000c43e  __mspabi_addf                          
-0000c56a  __TI_decompress_lzss                   
-0000c658  __mspabi_mpyf                          
-0000c710  __TI_auto_init_nobinit_nopinit_hold_wdt
-0000c77a  fir_filter                             
-0000c7e4  __memcpy_far                           
-0000c824  __TI_decompress_none                   
-0000c860  _c_int00_noargs                        
-0000c87c  main                                   
-0000c890  __TI_ISR_TRAP                          
-0000c898  C$$EXIT                                
-0000c898  abort                                  
-0000c89e  _system_pre_init                       
-0000c8a2  _system_post_cinit                     
+0000c42a  __TI_Handler_Table_Base                
+0000c432  __TI_CINIT_Base                        
+0000c432  __TI_Handler_Table_Limit               
+0000c43a  __TI_CINIT_Limit                       
+0000c43a  __TI_CINIT_Warm                        
+0000c43a  __mspabi_subf                          
+0000c440  __mspabi_addf                          
+0000c56c  __TI_decompress_lzss                   
+0000c65a  __mspabi_mpyf                          
+0000c712  fir_filter                             
+0000c786  __TI_auto_init_nobinit_nopinit_hold_wdt
+0000c7f0  __memcpy_far                           
+0000c830  __TI_decompress_none                   
+0000c86c  _c_int00_noargs                        
+0000c888  main                                   
+0000c89c  __TI_ISR_TRAP                          
+0000c8a4  C$$EXIT                                
+0000c8a4  abort                                  
+0000c8aa  _system_pre_init                       
+0000c8ae  _system_post_cinit                     
 0000ffe2  __TI_int45                             
 0000ffe4  __TI_int46                             
 0000ffe6  __TI_int47                             

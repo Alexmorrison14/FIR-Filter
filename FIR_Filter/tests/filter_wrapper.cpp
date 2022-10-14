@@ -13,3 +13,12 @@ float call_fir_filter(float data)
 {
     return fir_filter(data);
 }
+
+void reset_input_values(void)
+{
+    for(int i =0; i<60; i++)
+    {
+        input[i] = 0;
+    }
+
+}
